@@ -1,0 +1,339 @@
+/* ================================================================
+   Home Page Styles
+   ================================================================ */
+
+/* ── Hero Section ─────────────────────────────────────────────── */
+
+.home-hero {
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--bg-dark) 0%,
+    #1a1a2e 40%,
+    var(--primary-dark) 70%,
+    var(--secondary) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial glow behind content */
+.home-hero::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(108, 99, 255, 0.15) 0%,
+    transparent 70%
+  );
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.home-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  width: 100%;
+}
+
+/* Greeting */
+.home-hero__greeting {
+  font-size: 1.15rem;
+  color: var(--secondary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+/* Name */
+.home-hero__name {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: var(--text-light);
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+}
+
+/* Tagline */
+.home-hero__tagline {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  font-weight: 400;
+}
+
+/* ── Typing / Role Carousel ───────────────────────────────────── */
+
+.home-hero__roles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+  height: 2.2em;
+  overflow: hidden;
+}
+
+.home-hero__roles-label {
+  font-weight: 400;
+}
+
+.home-hero__roles-carousel {
+  position: relative;
+  display: inline-block;
+  height: 1.4em;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.home-hero__role {
+  display: block;
+  font-weight: 700;
+  color: var(--secondary);
+  line-height: 1.4em;
+  animation: roleSlide 6s infinite;
+  animation-delay: calc(var(--role-index) * 2s);
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+}
+
+/* Each role fades in, holds, then fades out over its 2 s window.
+   Total cycle = --total-roles * 2 s = 6 s.                         */
+@keyframes roleSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  28% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  33.33% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Blinking cursor after the carousel */
+.home-hero__roles-carousel::after {
+  content: '|';
+  display: inline-block;
+  position: absolute;
+  right: -14px;
+  top: 0;
+  line-height: 1.4em;
+  color: var(--secondary);
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ── CTA Buttons ──────────────────────────────────────────────── */
+
+.home-hero__cta {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition),
+    background var(--transition);
+  cursor: pointer;
+}
+
+.home-hero__btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Primary — solid gradient */
+.home-hero__btn--primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.35);
+}
+
+.home-hero__btn--primary:hover {
+  box-shadow: 0 6px 28px rgba(108, 99, 255, 0.5);
+}
+
+/* Secondary — outlined */
+.home-hero__btn--secondary {
+  background: transparent;
+  color: var(--text-light);
+  border: 2px solid var(--secondary);
+}
+
+.home-hero__btn--secondary:hover {
+  background: rgba(0, 217, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 217, 255, 0.25);
+}
+
+.home-hero__btn-icon {
+  font-size: 1rem;
+}
+
+/* ── Stats Strip ──────────────────────────────────────────────── */
+
+.home-stats {
+  background: var(--bg-light);
+  padding: 3rem 1.5rem;
+}
+
+.home-stats__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.home-stats__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 2rem;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.home-stats__item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.home-stats__icon {
+  font-size: 2rem;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.home-stats__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-stats__value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--bg-dark);
+  line-height: 1.2;
+}
+
+.home-stats__label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .home-hero {
+    padding: 3rem 1.25rem;
+  }
+
+  .home-hero__roles {
+    flex-direction: column;
+    height: auto;
+    gap: 0.25rem;
+  }
+
+  .home-hero__cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-hero__btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .home-stats {
+    padding: 2rem 1rem;
+  }
+
+  .home-stats__inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .home-stats__item {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero {
+    padding: 2.5rem 1rem;
+  }
+
+  .home-hero__greeting {
+    font-size: 1rem;
+  }
+
+  .home-hero__btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .home-stats__item {
+    padding: 1rem 1.25rem;
+  }
+
+  .home-stats__value {
+    font-size: 1.5rem;
+  }
+
+  .home-stats__label {
+    font-size: 0.78rem;
+  }
+}

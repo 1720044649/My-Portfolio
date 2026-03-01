@@ -1,0 +1,295 @@
+/* ================================================================
+   Experience Page Styles
+   ================================================================ */
+
+/* ── Section ─────────────────────────────────────────────────── */
+
+.experience-section {
+  padding: 3rem 1.5rem 5rem;
+  background: var(--bg-light);
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.experience-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+
+.experience-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.experience-title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 0.75rem;
+}
+
+.experience-title span {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.experience-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin: 0;
+}
+
+/* ── Timeline ────────────────────────────────────────────────── */
+
+.experience-timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+/* Vertical line */
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--primary) 0%,
+    var(--secondary) 100%
+  );
+  border-radius: 2px;
+}
+
+/* ── Timeline Item ───────────────────────────────────────────── */
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Timeline Dot ────────────────────────────────────────────── */
+
+.timeline-dot {
+  position: absolute;
+  left: -40px;
+  top: 1.5rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 5px var(--bg-light), 0 4px 12px rgba(108, 99, 255, 0.3);
+  z-index: 1;
+}
+
+.timeline-dot-icon {
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+/* ── Timeline Card ───────────────────────────────────────────── */
+
+.timeline-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+}
+
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 1.65rem;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid var(--border);
+}
+
+.timeline-card::after {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 1.65rem;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid var(--bg-card);
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Card Content ────────────────────────────────────────────── */
+
+.timeline-role {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 0.35rem;
+}
+
+.timeline-company {
+  font-size: 1.05rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+.timeline-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background: var(--bg-light);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.timeline-duration-icon {
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
+
+.timeline-points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-points li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.timeline-points li:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .experience-header {
+    margin-bottom: 3rem;
+  }
+
+  .experience-timeline {
+    padding-left: 32px;
+  }
+
+  .experience-timeline::before {
+    left: 11px;
+  }
+
+  .timeline-dot {
+    left: -32px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .timeline-dot-icon {
+    font-size: 0.7rem;
+  }
+
+  .timeline-card {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .timeline-card::before,
+  .timeline-card::after {
+    display: none;
+  }
+
+  .timeline-role {
+    font-size: 1.15rem;
+  }
+
+  .timeline-company {
+    font-size: 0.95rem;
+  }
+
+  .timeline-points li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .experience-timeline {
+    padding-left: 28px;
+  }
+
+  .experience-timeline::before {
+    left: 9px;
+    width: 2px;
+  }
+
+  .timeline-dot {
+    left: -28px;
+    width: 24px;
+    height: 24px;
+    box-shadow: 0 0 0 4px var(--bg-light), 0 3px 8px rgba(108, 99, 255, 0.25);
+  }
+
+  .timeline-dot-icon {
+    font-size: 0.6rem;
+  }
+
+  .timeline-card {
+    padding: 1rem 1.25rem;
+  }
+
+  .timeline-role {
+    font-size: 1.05rem;
+  }
+
+  .timeline-duration {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+  }
+}

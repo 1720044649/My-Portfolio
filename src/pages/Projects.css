@@ -1,0 +1,204 @@
+/* ═══════════════════════════════════════════════
+   Projects Page
+   ═══════════════════════════════════════════════ */
+
+.projects-section {
+  padding: 5rem 0;
+}
+
+/* ── Grid Layout ── */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* ── Project Card ── */
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  animation: projectCardFadeIn 0.5s ease both;
+  animation-delay: calc(var(--card-index, 0) * 0.15s);
+}
+
+@keyframes projectCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Gradient Banner ── */
+
+.project-card__banner {
+  height: 8px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  flex-shrink: 0;
+}
+
+/* ── Card Body ── */
+
+.project-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem;
+  flex: 1;
+}
+
+/* ── Title ── */
+
+.project-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* ── Description ── */
+
+.project-card__description {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  flex: 1;
+}
+
+/* ── Tech Stack Tags ── */
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.project-tag {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  border-radius: 100px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+/* ── Action Buttons ── */
+
+.project-card__actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.project-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.project-card__btn:hover {
+  transform: translateY(-2px);
+}
+
+/* GitHub button — outlined */
+.project-card__btn--github {
+  background: transparent;
+  color: var(--text-dark);
+  border: 2px solid var(--border);
+}
+
+.project-card__btn--github:hover {
+  border-color: var(--text-dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Live Demo button — solid primary */
+.project-card__btn--demo {
+  background: var(--primary);
+  color: #fff;
+  border: 2px solid var(--primary);
+  box-shadow: var(--shadow-primary);
+}
+
+.project-card__btn--demo:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+}
+
+.project-card__btn-icon {
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+/* ── Coming Soon Note ── */
+
+.projects-note {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-top: 3rem;
+  padding: 1rem 1.5rem;
+  background: color-mix(in srgb, var(--primary) 5%, transparent);
+  border-radius: var(--radius-sm);
+  border: 1px dashed color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+/* ═══════════════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════════════ */
+
+/* Tablet — 2 columns */
+@media (max-width: 992px) {
+  .projects-section {
+    padding: 4rem 0;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile — 1 column */
+@media (max-width: 576px) {
+  .projects-section {
+    padding: 3rem 0;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-card__body {
+    padding: 1.25rem;
+  }
+
+  .project-card__actions {
+    flex-direction: column;
+  }
+
+  .project-card__btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
