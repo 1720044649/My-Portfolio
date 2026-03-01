@@ -50,6 +50,12 @@ function Navbar() {
           ))}
         </div>
 
+        <div
+          className={`navbar-overlay ${menuOpen ? 'active' : ''}`}
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+
         <button className="navbar-toggle" onClick={toggleMenu} aria-label="Toggle menu">
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
