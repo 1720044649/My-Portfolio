@@ -40,7 +40,7 @@ function Home() {
           {/* CTA Buttons */}
           <div className="home-hero__cta">
             <a
-              href="/resume.pdf"
+              href="/KrupaTejaswiniNarra.pdf"
               download
               className="home-hero__btn home-hero__btn--primary"
             >
