@@ -5,21 +5,21 @@ import './About.css';
 const educationData = [
   {
     degree: 'B.Tech in CSE',
-    institution: "Vignan's Foundation for Science, Technology and Research, Vadlamudi",
+    institution: "St Ann's College of Engineering and Technology",
     years: '2022\u20132026',
-    grade: 'CGPA: 7.71',
+    grade: 'CGPA: 8.89',
   },
   {
     degree: 'Intermediate (MPC)',
-    institution: 'Sri Prathibha Junior College, Chirala',
+    institution: 'Sri Chaitanya Junior College',
     years: '2020\u20132022',
-    grade: 'CGPA: 8.96',
+    grade: 'Percentage: 74.8%',
   },
   {
     degree: 'SSC',
-    institution: 'Montessori English Medium High School, Chirala',
+    institution: 'Christ the King English Medium High School',
     years: '2019\u20132020',
-    grade: 'GPA: 10.0',
+    grade: 'Percentage: 99.3%',
   },
 ];
 
